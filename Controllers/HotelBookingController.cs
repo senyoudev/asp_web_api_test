@@ -54,6 +54,29 @@ namespace web_api_test.Controllers
 
         }
 
+        //Get
+        [HttpGet]
+        public JsonResult GetPostById(int id)
+        {
+            var bookings = _context.Bookings.Find(id);
+            if(bookings == null)
+            {
+                return new JsonResult(NotFound());
+            }
+            return new JsonResult(Ok(bookings));
+        }
+
+        //Get
+        [HttpGet]
+        public JsonResult GetPosts()
+        {
+            var bookings = _context.Bookings.Find();
+            if (bookings == null)
+            {
+                return new JsonResult(NotFound());
+            }
+            return new JsonResult(Ok(bookings));
+        }
 
     }
 
