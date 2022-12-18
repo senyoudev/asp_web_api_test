@@ -70,7 +70,7 @@ namespace web_api_test.Controllers
         [HttpGet]
         public JsonResult GetPosts()
         {
-            var bookings = _context.Bookings.Find();
+            var bookings = _context.Bookings.ToList();
             if (bookings == null)
             {
                 return new JsonResult(NotFound());
